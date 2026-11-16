@@ -1,0 +1,5 @@
+client.lightning-endpoint=sql.<region>.<cloud>.confluent.cloud
+client.environment-id=<env_id>
+client.lkc-id=<lkc_id>
+client.global-api-key=<global_api_key>
+client.global-api-secret=<global_api_secret>
