@@ -19,7 +19,7 @@
   - [Freshness](#freshness)
   - [Query Lightning Tables with JetBrains DataGrip](#query-lightning-tables-with-jetbrains-datagrip)
 
-Query real-time Kafka data using **Confluent Cloud Lightning Tables**, **JDBC**, and **Visual Studio Code**.
+Query real-time Kafka data using **Confluent Cloud Lightning Tables** and **JDBC**.
 
 This demo creates an Avro-backed `orders` topic in Confluent Cloud, produces sample orders, enables a Lightning Table for the topic, and runs SQL queries over JDBC.
 
@@ -39,7 +39,6 @@ It's only meant to serve as an example or reference and does not replace the nee
 - Schema Registry enabled in the environment.
 - [Confluent CLI](https://docs.confluent.io/confluent-cli/current/install.html), logged in with `confluent login`.
 - `kafka-avro-console-producer` on your `PATH` (from Confluent Platform tools).
-- [Visual Studio Code](https://code.visualstudio.com/).
 - **Java 17 or later** (`java -version`).
 - A **Global API key and secret** associated with an identity authorized to query the topic's Lightning Table. Browsing tables also requires topic-listing and metadata permissions.
 
