@@ -1,7 +1,7 @@
-# Confluent Lightning Tables — JDBC Demo in VS Code
+# Confluent Lightning Tables - JDBC Demo
 
 
-- [Confluent Lightning Tables — JDBC Demo in VS Code](#confluent-lightning-tables--jdbc-demo-in-vs-code)
+- [Confluent Lightning Tables - JDBC Demo](#confluent-lightning-tables---jdbc-demo)
   - [Disclaimer](#disclaimer)
   - [Prerequisites](#prerequisites)
   - [Configure Your Environment](#configure-your-environment)
@@ -10,7 +10,7 @@
   - [Enable the Lightning Table](#enable-the-lightning-table)
   - [Download the JDBC driver and SQLLine](#download-the-jdbc-driver-and-sqlline)
   - [Configure the JDBC connection](#configure-the-jdbc-connection)
-  - [Query from VS Code using JDBC](#query-from-vs-code-using-jdbc)
+  - [Query using JDBC](#query-using-jdbc)
     - [List recent sample orders](#list-recent-sample-orders)
     - [Find shipped orders, most expensive first](#find-shipped-orders-most-expensive-first)
     - [Find orders within a total range](#find-orders-within-a-total-range)
@@ -21,7 +21,7 @@
 
 Query real-time Kafka data using **Confluent Cloud Lightning Tables**, **JDBC**, and **Visual Studio Code**.
 
-This demo creates an Avro-backed `orders` topic in Confluent Cloud, produces sample orders, enables a Lightning Table for the topic, and runs SQL queries over JDBC from VS Code's integrated terminal.
+This demo creates an Avro-backed `orders` topic in Confluent Cloud, produces sample orders, enables a Lightning Table for the topic, and runs SQL queries over JDBC.
 
 It is based on [realtime-contextengine-queries](https://github.com/rjmfernandes/realtime-contextengine-queries), but **replaces the Claude Code / MCP query path with JDBC**. No MCP server, AI assistant, or Flink compute pool is required.
 
@@ -68,7 +68,7 @@ SCHEMA_REGISTRY_API_KEY=your-schema-registry-api-key
 SCHEMA_REGISTRY_API_SECRET=your-schema-registry-api-secret
 ```
 
-Edit **`.env`** with your actual values, then load it in the VS Code terminal:
+Edit **`.env`** with your actual values:
 
 ```bash
 set -a
@@ -159,7 +159,7 @@ Only tables in the **ACTIVE** phase can be queried.
 
 ## Download the JDBC driver and SQLLine
 
-From the VS Code integrated terminal, download the versions referenced in Confluent's JDBC documentation:
+Download the versions referenced in Confluent's JDBC documentation:
 
 ```bash
 mkdir -p drivers
@@ -195,9 +195,9 @@ The connection URL references the local properties file rather than embedding se
 jdbc:confluent:lightning://?propertiesFile=/absolute/path/to/lightning-jdbc.properties
 ```
 
-## Query from VS Code using JDBC
+## Query using JDBC
 
-Open the repository in VS Code and select **Terminal → New Terminal**. Make sure the terminal is at the repository root, then run:
+Run:
 
 ```bash
 CP="$PWD/drivers/sqlline-1.12.0-jar-with-dependencies.jar"
@@ -278,7 +278,7 @@ On the the Avro producer terminal publish a new order:
 {"order_id":"o-1008","customer_id":"c-003","status":"SHIPPED","total":310.00}
 ```
 
-In another VS Code terminal, run or reopen SQLLine and query the Lightning Table:
+In another terminal, run or reopen SQLLine and query the Lightning Table:
 
 ```sql
 SELECT ORDER_ID, CUSTOMER_ID, STATUS, TOTAL
